@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>颜色转换</title>
+    <style>
+        body{
+            transition: background-color 0.5s ease;
+            background-color: white;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 40px;
+            transition: background-color 0.5s ease,
+            color 0.5s ease;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            background-color: white;
+            color: white;
+            filter: invert(1);
+        }
+        button span{
+            filter: invert();
+        }
+    </style>
+</head>
+<body>
+    <button onclick="convert()"><span>转换颜色</span></button>
+    <script>
+        function convert() {
+            const num1 = Math.floor(Math.random() * 256);
+            const num2 = Math.floor(Math.random() * 256);
+            const num3 = Math.floor(Math.random() * 256);
+            document.body.style.backgroundColor = `rgb(${num1},${num2},${num3})`;
+            document.querySelector("button").style.backgroundColor = `rgb(${num1},${num2},${num3})`;
+            document.querySelector("button").style.color = `rgb(${num1},${num2},${num3})`;
+        }
+    </script>
+</body>
+</html>
